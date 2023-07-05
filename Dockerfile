@@ -6,4 +6,4 @@ RUN mvn clean package
 FROM eclipse-temurin:20-jre-alpine
 COPY --from=stage1 ./app-src/*/target/*.jar ./app-jars/
 WORKDIR ./app-jars
-ENTRYPOINT ["java", "--module-path", "glossary_impls-1.0-SNAPSHOT.jar:glossary-1.0-SNAPSHOT.jar:language_learny-1.0-SNAPSHOT.jar", "--module", "language_learny/blabla.ahlberg.language_learny.Main"]
+ENTRYPOINT ["java", "--module-path", ".", "--module", "language_learny/blabla.ahlberg.language_learny.Main"]
